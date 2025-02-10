@@ -36,6 +36,7 @@ title = "Gokarna"
 
   description = "Sky above, sand below and peace within"
   footer = "The Marauders"
+  enableMadeWithGokarna = true
   metaKeywords = ["blog", "gokarna", "hugo"]
   showBackToTopButton = true # true or false for "back to top" button on posts and pages
 
