@@ -14,6 +14,18 @@
         </div>
 
         <div class="nav-links">
+            <div class="nav-link language-switch">
+                {{ if eq .Site.Language.Lang "fr" }}
+                <a href="{{ .Site.BaseURL }}/en/" aria-label="Switch to English">
+                    🇬🇧
+                </a>
+                {{ else }}
+                <a href="{{ .Site.BaseURL }}/fr/" aria-label="Passer en français">
+                    🇫🇷
+                </a>
+                {{ end }}
+            </div>
+            
             {{ range .Site.Menus.main }}
             <div class="nav-link">
                 <a href="{{ .URL | absURL }}" aria-label="{{ .Identifier }}" {{ if .Params.NewPage -}}target="_blank" {{- end -}}>
@@ -53,7 +65,6 @@
                     </a>
                 </li>
             </ul>
-
         </div>
     </nav>
 </header>
