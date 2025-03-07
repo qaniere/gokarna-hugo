@@ -77,9 +77,10 @@
                 if (currentUrl[1].length === 2) {
                     currentUrl.splice(1, 1);
                 }
-    
+
                 let newUrl;
-                if (lang === defaultLang) {
+            
+                if (lang == defaultLang) {
                     newUrl = `${baseUrl}/${currentUrl.join('/')}`;
                 } else {
                     newUrl = `${baseUrl}/${lang}/${currentUrl.join('/')}`;
