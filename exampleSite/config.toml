@@ -9,6 +9,8 @@ theme = "gokarna"
 title = "Gokarna"
 
 [params]
+  defaultContentLanguage = "en"
+  
   avatarAltText = "avatar"
   avatarSize = "size-m"
   avatarURL = "/images/avatar.webp"
