@@ -14,15 +14,12 @@
         </div>
 
         <div class="nav-links">
+            <data id="default-lang" style="display: none;">{{.Site.Language.Lang}}</data>
             <div class="nav-link language-switch">
                 {{ if eq .Site.Language.Lang "fr" }}
-                <a href="{{ .Site.BaseURL }}/en/" aria-label="Switch to English">
-                    🇬🇧
-                </a>
+                    <a class="lang-switch" data-lang="en" aria-label="Switch to English">🇬🇧</a>
                 {{ else }}
-                <a href="{{ .Site.BaseURL }}/fr/" aria-label="Passer en français">
-                    🇫🇷
-                </a>
+                    <a class="lang-switch" data-lang="fr" aria-label="Passer en français">🇫🇷</a>
                 {{ end }}
             </div>
             
@@ -67,4 +64,25 @@
             </ul>
         </div>
     </nav>
+    <script>
+        defaultLang = document.getElementById("default-lang").innerHTML;
+
+        langSwitchs = document.querySelectorAll('.lang-switch');
+        langSwitchs.forEach(el => {
+            el.addEventListener("click", (e) => {
+                lang = e.srcElement.getAttribute("data-lang");
+                let currentUrl = window.location.pathname.split('/');
+                let baseUrl = window.location.origin;
+
+                if (currentUrl[1].length === 2) {
+                    currentUrl.splice(1, 1); 
+                }
+
+                let newUrl = lang === defaultLang ? `${baseUrl}/${currentUrl.join('/')}` : `${baseUrl}/${lang}/${currentUrl.join('/')}`;
+
+                window.location.href = newUrl;
+            });
+        });
+</script>
 </header>
+
