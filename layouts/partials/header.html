@@ -64,13 +64,13 @@
             </ul>
         </div>
     </nav>
-    <script>
-        defaultLang = document.getElementById("default-lang").innerHTML;
-    
+    <script>    
         langSwitchs = document.querySelectorAll('.lang-switch');
         langSwitchs.forEach(el => {
             el.addEventListener("click", (e) => {
+                defaultLang = document.getElementById("default-lang").innerHTML;
                 lang = e.srcElement.getAttribute("data-lang");
+                
                 let currentUrl = window.location.pathname.split('/');
                 let baseUrl = window.location.origin;
     
