@@ -81,8 +81,10 @@
                 let newUrl;
             
                 if (lang == defaultLang) {
+                    alert("if 1")
                     newUrl = `${baseUrl}/${currentUrl.join('/')}`;
                 } else {
+                    alert("if 2")
                     newUrl = `${baseUrl}/${lang}/${currentUrl.join('/')}`;
                 }
     
