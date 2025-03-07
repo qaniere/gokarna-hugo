@@ -14,7 +14,7 @@
         </div>
 
         <div class="nav-links">
-            <data id="default-lang" style="display: none;">{{ site.Params.defaultContentLanguage }}</data>
+            <data id="default-lang" style="display: none;">{{ site.Params.baseLang }}</data>
             <div class="nav-link language-switch">
                 {{ if eq .Site.Language.Lang "fr" }}
                     <a class="lang-switch" data-lang="en" aria-label="Switch to English">🇬🇧</a>

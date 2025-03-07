@@ -9,7 +9,7 @@ theme = "gokarna"
 title = "Gokarna"
 
 [params]
-  defaultContentLanguage = "en"
+  baseLang = "en"
   
   avatarAltText = "avatar"
   avatarSize = "size-m"
