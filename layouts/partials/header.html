@@ -14,6 +14,14 @@
         </div>
 
         <div class="nav-links">
+            {{ range .Site.Menus.main }}
+            <div class="nav-link">
+                <a href="{{ .URL | absURL }}" aria-label="{{ .Identifier }}" {{ if .Params.NewPage -}}target="_blank" {{- end -}}>
+                    {{- .Pre | safeHTML }} {{ .Name }} {{ .Post | safeHTML -}}
+                </a>
+            </div>
+            {{ end }}
+            <span class="nav-icons-divider"></span>
             <data id="default-lang" style="display: none;">{{ site.Params.baseLang }}</data>
             <div class="nav-link language-switch">
                 {{ if eq .Site.Language.Lang "fr" }}
@@ -22,16 +30,6 @@
                     <a class="lang-switch" data-lang="fr" aria-label="Passer en français">🇫🇷</a>
                 {{ end }}
             </div>
-            
-            {{ range .Site.Menus.main }}
-            <div class="nav-link">
-                <a href="{{ .URL | absURL }}" aria-label="{{ .Identifier }}" {{ if .Params.NewPage -}}target="_blank" {{- end -}}>
-                    {{- .Pre | safeHTML }} {{ .Name }} {{ .Post | safeHTML -}}
-                </a>
-            </div>
-            {{ end }}
-
-            <span class="nav-icons-divider"></span>
             <div class="nav-link dark-theme-toggle">
                 <span class="sr-only dark-theme-toggle-screen-reader-target">theme</span>
                 <a aria-hidden="true" role="switch">
@@ -70,7 +68,7 @@
             el.addEventListener("click", (e) => {
                 defaultLang = document.getElementById("default-lang").innerHTML;
                 lang = e.srcElement.getAttribute("data-lang");
-                
+
                 let currentUrl = window.location.pathname.split('/');
                 let baseUrl = window.location.origin;
     
@@ -80,14 +78,9 @@
 
                 let newUrl;
 
-                alert(lang)
-                alert(defaultLang)
-            
                 if (lang == defaultLang) {
-                    alert("if 1")
                     newUrl = `${baseUrl}/${currentUrl.join('/')}`;
                 } else {
-                    alert("if 2")
                     newUrl = `${baseUrl}/${lang}/${currentUrl.join('/')}`;
                 }
     
