@@ -53,6 +53,11 @@
                     </a>
                 </li>
                 {{ end }}
+                {{ if eq .Site.Language.Lang "fr" }}
+                    <a class="lang-switch" data-lang="en" aria-label="Switch to English">🇬🇧</a>
+                {{ else }}
+                    <a class="lang-switch" data-lang="fr" aria-label="Passer en français">🇫🇷</a>
+                {{ end }}
                 <li class="nav-item dark-theme-toggle">
                     <span class="sr-only dark-theme-toggle-screen-reader-target">theme</span>
                     <a role="switch">
